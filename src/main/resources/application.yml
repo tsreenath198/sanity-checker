@@ -1,0 +1,38 @@
+app:
+  email:
+    properties:
+      fromEmail: test@gmail.com
+      subjectTemplate: LZ File Errors Notification
+      bodyTemplate: Invalid file [filename]
+      toEmails: test@gmail.com
+      ccEmails:
+        - test1@gmail.com
+        - test2@gmail.com
+      bccEmails:
+        - test3@gmail.com
+        - test4@gmail.com
+  directories:
+    path:
+      rootDir: c:\lz-files
+      sourceDir: ${app.directories.path.rootDir}\source
+      failDir: ${app.directories.path.rootDir}\fail
+      archiveDir: ${app.directories.path.rootDir}\archive
+  file:
+    properties:
+      allowedExtensions:
+        - xls
+        - xlsx
+spring:
+  mail:
+    banner-mode: off
+    protocol: smtp
+    host: smtp.gmail.com
+    port: 587
+    username: test
+    password: test
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls.enable: true
+
